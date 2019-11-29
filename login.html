@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>幼儿园管理系统</title>
+  <link rel="stylesheet" href="../layui-v2.5.5/layui/css/layui.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <script src="../layui-v2.5.5/layui/layui.js"></script>
+</head>
+
+<body>
+  <div id="box">
+    <div id="react">
+      <img src="../image/login.png" width="400px" height="225px">
+    </div>
+    <div id="input">
+      <form class="layui-form">
+        <div class="layui-form-item">
+          <label class="layui-form-label">用户名：</label>
+          <div class="layui-input-inline">
+            <input type="text" id="username" name="username"  placeholder="请输入用户名"
+              autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">密码：</label>
+          <div class="layui-input-inline">
+            <input type="password" id="password" name="password"  placeholder="请输入密码"
+              autocomplete="off" class="layui-input">
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="button" class="layui-btn layui-btn-radius layui-btn-normal" id="btn">登
+                &nbsp&nbsp录</button>
+            </div>
+          </div>
+      </form>
+    </div>
+    <script>
+      layui.use('form', function () {
+        var form = layui.form;
+      });
+      btn.onclick = () => {
+        const name = username.value
+        const pwd  = password.value
+        if(username.value == ''){
+          alert('用户名不能为空');
+          return 
+        }
+        if(password.value == ''){
+          alert('密码不能为空');
+          return
+        }
+        for (let i = 0; i < window.datas.length; i++) {
+          if (name == window.datas[i].username && pwd == window.datas[i].pwd) {
+            // 验证成功
+            alert('登录成功');
+            window.location.href = "base.html";
+            return
+          } else {
+            alert('账号和密码错误');
+            return
+            // 不成功
+          }
+        }
+      }
+      window.datas = [
+        {
+          username: '汪洋',
+          pwd: 123
+        },
+        {
+          username: '汪洋1',
+          pwd: 123
+        },
+        {
+          username: '汪洋2',
+          pwd: 123
+        },
+      ]
+    </script>
+  </div>
+</body>
+
+</html>
